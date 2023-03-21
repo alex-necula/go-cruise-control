@@ -1,14 +1,12 @@
-module github.com/banzaicloud/go-cruise-control/integration_test
+module github.com/alex-necula/go-cruise-control/integration_test
 
 go 1.18
 
 require (
-	github.com/banzaicloud/go-cruise-control v0.0.0
+	github.com/alex-necula/go-cruise-control v0.0.0
 	github.com/docker/compose/v2 v2.17.0-rc.1
 	github.com/go-logr/logr v1.2.3
 	github.com/go-logr/zapr v1.2.3
-	github.com/onsi/ginkgo/v2 v2.8.4
-	github.com/onsi/gomega v1.27.2
 	github.com/pkg/errors v0.9.1
 	go.uber.org/zap v1.24.0
 )
@@ -62,7 +60,6 @@ require (
 	github.com/fsnotify/fsevents v0.1.1 // indirect
 	github.com/fvbommel/sortorder v1.0.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
-	github.com/go-task/slim-sprig v0.0.0-20210107165309-348f09dbbbc0 // indirect
 	github.com/gofrs/flock v0.8.1 // indirect
 	github.com/gogo/googleapis v1.4.1 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
@@ -70,7 +67,6 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/go-cmp v0.5.9 // indirect
 	github.com/google/gofuzz v1.2.0 // indirect
-	github.com/google/pprof v0.0.0-20210407192527-94a9f03dee38 // indirect
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
 	github.com/googleapis/gnostic v0.5.5 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
@@ -154,7 +150,6 @@ require (
 	golang.org/x/term v0.5.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
 	golang.org/x/time v0.1.0 // indirect
-	golang.org/x/tools v0.6.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20221024183307-1bc688fe9f3e // indirect
 	google.golang.org/grpc v1.50.1 // indirect
@@ -169,7 +164,7 @@ require (
 	sigs.k8s.io/yaml v1.2.0 // indirect
 )
 
-replace github.com/banzaicloud/go-cruise-control => ../
+replace github.com/alex-necula/go-cruise-control => ../
 
 // Docker
 // NOTE(chrisgacsal): force cloud.google.com/go to be at least v0.100.2, so that the metadata is not present.

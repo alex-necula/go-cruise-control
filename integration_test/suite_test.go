@@ -23,13 +23,11 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/banzaicloud/go-cruise-control/integration_test/envtest"
-	"github.com/banzaicloud/go-cruise-control/integration_test/helpers"
-	"github.com/banzaicloud/go-cruise-control/pkg/client"
+	"github.com/alex-necula/go-cruise-control/integration_test/envtest"
+	"github.com/alex-necula/go-cruise-control/integration_test/helpers"
+	"github.com/alex-necula/go-cruise-control/pkg/client"
 	"github.com/compose-spec/compose-go/cli"
 	"github.com/go-logr/logr"
-	. "github.com/onsi/ginkgo/v2"
-	. "github.com/onsi/gomega"
 )
 
 const (

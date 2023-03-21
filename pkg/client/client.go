@@ -27,7 +27,7 @@ import (
 	"github.com/go-logr/logr"
 	"github.com/pkg/errors"
 
-	"github.com/banzaicloud/go-cruise-control/pkg/types"
+	"github.com/alex-necula/go-cruise-control/pkg/types"
 )
 
 const (

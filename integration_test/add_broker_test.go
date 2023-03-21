@@ -17,11 +17,9 @@ limitations under the License.
 package integration_test
 
 import (
-	"github.com/banzaicloud/go-cruise-control/integration_test/helpers"
-	"github.com/banzaicloud/go-cruise-control/pkg/api"
-	"github.com/banzaicloud/go-cruise-control/pkg/types"
-	. "github.com/onsi/ginkgo/v2"
-	. "github.com/onsi/gomega"
+	"github.com/alex-necula/go-cruise-control/integration_test/helpers"
+	"github.com/alex-necula/go-cruise-control/pkg/api"
+	"github.com/alex-necula/go-cruise-control/pkg/types"
 )
 
 var _ = Describe("Add Broker", Label("api:add_broker", "api:state"), Serial, func() {

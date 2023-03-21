@@ -1,4 +1,4 @@
-[![CI](https://github.com/banzaicloud/go-cruise-control/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/banzaicloud/go-cruise-control/actions/workflows/ci.yaml)
+[![CI](https://github.com/alex-necula/go-cruise-control/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/alex-necula/go-cruise-control/actions/workflows/ci.yaml)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/banzaicloud/go-cruise-control)
 
 # go-cruise-control
@@ -11,7 +11,7 @@ Supported _Cruise Control_ versions: **2.5.94+** (tested with v2.5.101)
 ## How to use it
 
 ```shell
-go get github.com/banzaicloud/go-cruise-control@latest
+go get github.com/alex-necula/go-cruise-control@latest
 ```
 
 ```go
@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/banzaicloud/go-cruise-control/client"
-	"github.com/banzaicloud/go-cruise-control/api"
+	"github.com/alex-necula/go-cruise-control/api"
+	"github.com/alex-necula/go-cruise-control/client"
 )
 
 func main() {
@@ -34,8 +34,8 @@ func main() {
 	}
 
 	// Create Context with timeout
-	ctx, cancel := context.WithTimeout(context.Background(), 30 * time.Second)
-	defer cancel() 
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
 
 	// Optionally set request Reason to Context which will sent to Cruise Control as part of the HTTP request
 	ctx = client.ContextWithReason("example")
