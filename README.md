@@ -11,7 +11,7 @@ Supported _Cruise Control_ versions: **2.5.94+** (tested with v2.5.101)
 ## How to use it
 
 ```shell
-go get github.com/banzaicloud/go-cruise-control@latest
+go get github.com/alex-necula/go-cruise-control@latest
 ```
 
 ```go
@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/banzaicloud/go-cruise-control/client"
-	"github.com/banzaicloud/go-cruise-control/api"
+	"github.com/alex-necula/go-cruise-control/client"
+	"github.com/alex-necula/go-cruise-control/api"
 )
 
 func main() {

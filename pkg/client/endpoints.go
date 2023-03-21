@@ -20,7 +20,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/banzaicloud/go-cruise-control/pkg/api"
+	"github.com/alex-necula/go-cruise-control/pkg/api"
 )
 
 func (c *Client) AddBroker(ctx context.Context, r *api.AddBrokerRequest) (*api.AddBrokerResponse, error) {

@@ -1,9 +1,9 @@
-module github.com/banzaicloud/go-cruise-control/integration_test
+module github.com/alex-necula/go-cruise-control/integration_test
 
 go 1.18
 
 require (
-	github.com/banzaicloud/go-cruise-control v0.0.0
+	github.com/alex-necula/go-cruise-control v0.0.0
 	github.com/docker/compose/v2 v2.17.0-rc.1
 	github.com/go-logr/logr v1.2.3
 	github.com/go-logr/zapr v1.2.3
@@ -169,7 +169,7 @@ require (
 	sigs.k8s.io/yaml v1.2.0 // indirect
 )
 
-replace github.com/banzaicloud/go-cruise-control => ../
+replace github.com/alex-necula/go-cruise-control => ../
 
 // Docker
 // NOTE(chrisgacsal): force cloud.google.com/go to be at least v0.100.2, so that the metadata is not present.
