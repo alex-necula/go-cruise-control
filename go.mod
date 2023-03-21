@@ -1,4 +1,4 @@
-module github.com/banzaicloud/go-cruise-control
+module github.com/alex-necula/go-cruise-control
 
 go 1.18
 

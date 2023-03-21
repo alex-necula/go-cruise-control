@@ -24,7 +24,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/banzaicloud/go-cruise-control/pkg/internal/encoder"
+	"github.com/alex-necula/go-cruise-control/pkg/internal/encoder"
 )
 
 var marshalerType = reflect.TypeOf((*RequestMarshaler)(nil)).Elem()

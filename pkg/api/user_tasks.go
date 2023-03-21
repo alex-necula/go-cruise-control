@@ -22,7 +22,7 @@ import (
 	"math"
 	"net/http"
 
-	"github.com/banzaicloud/go-cruise-control/pkg/types"
+	"github.com/alex-necula/go-cruise-control/pkg/types"
 )
 
 const (

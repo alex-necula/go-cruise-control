@@ -19,9 +19,9 @@ package helpers
 import (
 	"context"
 
-	"github.com/banzaicloud/go-cruise-control/pkg/api"
-	"github.com/banzaicloud/go-cruise-control/pkg/client"
-	"github.com/banzaicloud/go-cruise-control/pkg/types"
+	"github.com/alex-necula/go-cruise-control/pkg/api"
+	"github.com/alex-necula/go-cruise-control/pkg/client"
+	"github.com/alex-necula/go-cruise-control/pkg/types"
 	"github.com/go-logr/logr"
 	"github.com/pkg/errors"
 )

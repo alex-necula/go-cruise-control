@@ -20,7 +20,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/banzaicloud/go-cruise-control/pkg/api"
+	"github.com/alex-necula/go-cruise-control/pkg/api"
 )
 
 const BoostrapRequestTimeout = 5 * time.Minute
