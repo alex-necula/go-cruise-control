@@ -26,7 +26,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/banzaicloud/go-cruise-control/pkg/internal/encoder"
+	"github.com/alex-necula/go-cruise-control/pkg/internal/encoder"
 )
 
 const reasonContextKey reasonContextKeyType = "CruiseControlRequestReason"
