@@ -61,7 +61,7 @@ var _ = Describe("Remove Disks",
 					finished, err := helpers.HasUserTaskFinished(ctx, cruisecontrol, resp.TaskID)
 					Expect(err).NotTo(HaveOccurred())
 					return finished
-				}, 300, 15).Should(BeTrue())
+				}, 600, 15).Should(BeTrue())
 
 				By("checking that the disk has been drained")
 				Eventually(ctx, func() int32 {

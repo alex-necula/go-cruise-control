@@ -35,6 +35,8 @@ type RemoveDisksRequest struct {
 
 	// Map of broker id to list of disks to remove.
 	BrokerIDAndLogDirs map[int32][]string `param:"brokerid_and_logdirs"`
+	// Whether to dry-run the request or not.
+	DryRun bool `param:"dryrun"`
 }
 
 type RemoveDisksResponse struct {
