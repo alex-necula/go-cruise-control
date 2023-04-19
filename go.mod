@@ -15,4 +15,6 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
+replace github.com/alex-necula/go-cruise-control => ./
+
 replace github.com/banzaicloud/go-cruise-control => ./
