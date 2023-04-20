@@ -29,8 +29,10 @@ var _ = Describe("Remove Disks",
 	Serial,
 	func() {
 		const (
-			brokerID = 0
-			logDir   = "/var/lib/kafka/data0"
+			brokerID                              = 0
+			logDir                                = "/var/lib/kafka/data0"
+			pollIntervalSeconds                   = 15
+			cruiseControlRemoveDiskTimeoutSeconds = 600
 		)
 
 		BeforeEach(func(ctx SpecContext) {
@@ -39,7 +41,7 @@ var _ = Describe("Remove Disks",
 				ready, err := helpers.IsCruiseControlReady(ctx, cruisecontrol)
 				Expect(err).NotTo(HaveOccurred())
 				return ready
-			}, CruiseControlReadyTimeout, 15).Should(BeTrue())
+			}, CruiseControlReadyTimeout, pollIntervalSeconds).Should(BeTrue())
 		})
 
 		Describe("Removing a disk in Kafka cluster", func() {
@@ -61,44 +63,42 @@ var _ = Describe("Remove Disks",
 					finished, err := helpers.HasUserTaskFinished(ctx, cruisecontrol, resp.TaskID)
 					Expect(err).NotTo(HaveOccurred())
 					return finished
-				}, 600, 15).Should(BeTrue())
+				}, cruiseControlRemoveDiskTimeoutSeconds, pollIntervalSeconds).Should(BeTrue())
 
 				By("checking that the disk has been drained")
-				Eventually(ctx, func() int32 {
-					req2 := api.KafkaClusterLoadRequestWithDefaults()
-					req2.PopulateDiskInfo = true
-					req2.Reason = "integration testing"
+				req2 := api.KafkaClusterLoadRequestWithDefaults()
+				req2.PopulateDiskInfo = true
+				req2.Reason = "integration testing"
 
-					resp2, err := cruisecontrol.KafkaClusterLoad(ctx, req2)
-					Expect(err).NotTo(HaveOccurred())
-					Expect(resp2.Failed()).To(BeFalse())
+				resp2, err := cruisecontrol.KafkaClusterLoad(ctx, req2)
+				Expect(err).NotTo(HaveOccurred())
+				Expect(resp2.Failed()).To(BeFalse())
 
-					Expect(resp2.Result.Brokers).ToNot(BeEmpty())
+				Expect(resp2.Result.Brokers).ToNot(BeEmpty())
 
-					var affectedBroker types.BrokerLoadStats
-					for _, broker := range resp2.Result.Brokers {
-						if broker.Broker == brokerID {
-							affectedBroker = broker
-							break
-						}
+				var affectedBroker types.BrokerLoadStats
+				for _, broker := range resp2.Result.Brokers {
+					if broker.Broker == brokerID {
+						affectedBroker = broker
+						break
 					}
+				}
 
-					Expect(affectedBroker).ToNot(BeNil())
+				Expect(affectedBroker).ToNot(BeNil())
 
-					var affectedDiskState types.DiskStats
-					for logDir, state := range affectedBroker.DiskState {
-						if logDir == logDir {
-							affectedDiskState = state
-							break
-						}
+				var affectedDiskState types.DiskStats
+				for logDir, state := range affectedBroker.DiskState {
+					if logDir == logDir {
+						affectedDiskState = state
+						break
 					}
+				}
 
-					Expect(affectedDiskState).ToNot(BeNil())
+				Expect(affectedDiskState).ToNot(BeNil())
 
-					replicas := affectedDiskState.NumReplicas
-					log.V(0).Info("partition replicas on broker disk", "broker_id", brokerID, "logDir", logDir, "replicas", replicas)
-					return replicas
-				}, 300, 15).Should(BeNumerically("==", 0))
+				replicas := affectedDiskState.NumReplicas
+				log.V(0).Info("partition replicas on broker disk", "broker_id", brokerID, "logDir", logDir, "replicas", replicas)
+				Expect(replicas).To(BeNumerically("==", 0))
 			})
 		})
 	})
